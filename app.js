@@ -1,8 +1,10 @@
 const dudesList = document.getElementById('user_cards');
 const searchBar = document.getElementById('search_bar');
 const reset = document.getElementById('reset');
+const switchStile = document.getElementById('switch_style');
 const disclaimer = document.getElementById('choose_another_gender');
 const RandomUserApiUrl = `https://randomuser.me/api/?results=32&nat=au,us,ca,gb,fr,nl,nz&inc=nat,location,gender,name,email,dob,phone,picture`;
+
 let theDudes = [];
 
 const loadDudes = async () => {
@@ -17,10 +19,10 @@ const loadDudes = async () => {
         console.log(toSortLater);
         // toSortLater.sort((a,b)=>
         // console.log(theDudes.results[0].name.last, theDudes.results[1].name.last,)
-
     } catch (err) {
         console.error(err);
     }
+    return toSortLater;
 };
 
 const displayDudes = (dudes) => {
@@ -52,6 +54,12 @@ reset.addEventListener('click', (e) => {
     loadDudes();
 });
 
+switchStile.addEventListener('click', (e) => {
+   document.body.style.background='gray';
+    switchStile.style.background='gray';
+    switchStile.innerText='Too pale?';
+});
+
 disclaimer.addEventListener('click', (e) => {
     alert("We are sorry - the are only two genders");
 });
@@ -70,17 +78,20 @@ searchBar.addEventListener('keyup', (e) => {
 
 loadDudes();
 
-const sortDudesByName = toSortLater.sort((a, b) => {
-    if (a.name < b.name) {
-        return -1;
-    }
-    if (a.name > b.name) {
-        return 1;
-    }
-    return 0;
-});
-console.log(sortDudesByName);
-
+async function sortByName(toSortLater) {
+    console.log(toSortLater)
+    const sortedByNameDudes = await toSortLater.sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
+    console.log(sortedByNameDudes);
+    return sortedByNameDudes
+}
 //==========================================================================
 
 // console.log(

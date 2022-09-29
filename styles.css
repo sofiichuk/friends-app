@@ -1,5 +1,5 @@
 body {
-    background-color: darkgray;
+    background-color: #ff0000;
     list-style: none;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
@@ -13,7 +13,7 @@ body {
     display: flex;
     font-size: small;
     min-width: 180px;
-    background-color: darkslategrey;
+    background-color: #ffae00;
     border-radius: 20px;
     flex-direction: column;
     align-items: center;
@@ -87,13 +87,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 1px solid darkslategray;
+    border: 1px solid #ffae00;
     cursor: pointer;
 }
 
 .user_name {
     color: azure;
-    background-color: darkslategrey;
+    background-color: #ffae00;
     align-self: center;
     font-size: 20px;
     padding: 7px;
@@ -142,8 +142,8 @@ body {
 }
 
 .age {
-    color: darkslategrey;
-    border: solid 1px darkslategrey;
+    color: #ffae00;
+    border: solid 1px #ffae00;
     width: 100%;
     text-align: center;
     padding: 5px 0 5px 0;
@@ -166,3 +166,18 @@ body {
     background-color: rgba(230, 244, 244, 0.815);
     transition: 0.3s;
 }
+
+.switch_style {
+    position: absolute;
+    border-radius: 20px;
+    cursor: pointer;
+    left: 235px;
+    background-color: #ff0000;
+    border: 1px solid black
+}
+
+/*.pale_palette{*/
+/*    color: darkslategrey;*/
+/*    background-color: darkslategrey;*/
+/*    border: darkslategrey;*/
+/*}*/
