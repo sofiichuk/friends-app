@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>friends app</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="page">
+    <div class="filter">
+        <div class='filter_content'>
+            <div class="title_center">Name:</div>
+            <input name="number" id="searchBar" placeholder="Search" type="text">
+            <div class="title_center">Name:</div>
+            <div>
+                <button class="filter_button"><img alt="" src="descending.png"></button>
+                <button class="filter_button"><img alt="" src="ascending.png"></button>
+            </div>
+            <div class="title_center">Sex:</div>
+            <form class="choose_sex">
+                <div class="choose_sex_content">
+                    <div class="filter_element"><input id="chooseMale" name="chooseSex" type="radio"
+                                                       value="Male">
+                        <label for="chooseMale">&nbsp;&nbsp;Male&nbsp;&nbsp;</label></div>
+
+                    <div class="filter_element"><input id="chooseFemale" name="chooseSex" type="radio"
+                                                       value="Female">
+                        <label for="chooseFemale">Female</label></div>
+
+                    <div class="filter_element"><input id="chooseAnotherGender" name="chooseSex" type="radio"
+                                                       value="No">
+                        <label for="chooseAnotherGender">&nbsp;Other&nbsp;&nbsp;</label></div>
+
+                    <div class="filter_element"><input id="chooseAll" name="chooseSex" type="radio"
+                                                       value="All">
+                        <label for="chooseAll">&nbsp;&nbsp;&nbsp;All&nbsp;&nbsp;&nbsp;&nbsp;</label></div>
+                </div>
+            </form>
+            <div class="title_center">Age:</div>
+            <div>
+                <input class="num_input" name="number" placeholder="  min" min="0" max="120" type="number">&nbsp;&nbsp;&nbsp;
+                <input class="num_input" name="number" placeholder="  max" min="0" max="120" type="number">
+            </div>
+            <div class="title_center">Age:</div>
+            <div>
+                <button class="filter_button"><img alt="" src="descending.png"></button>
+                <button class="filter_button"><img alt="" src="ascending.png"></button>
+            </div>
+            <div>
+                <button id="reset">Show me another bunch of dudes</button>
+            </div>
+        </div>
+    </div>
+
+    <ul id="user_cards">
+
+    </ul>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
