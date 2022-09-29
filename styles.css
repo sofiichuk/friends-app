@@ -17,7 +17,7 @@ body {
     border-radius: 20px;
     flex-direction: column;
     align-items: center;
-    max-height: 300px;
+    max-height: 700px;
     padding: 10px 30px 30px 30px;
 }
 
@@ -37,7 +37,7 @@ body {
     gap: 5px;
 }
 
-#searchBar {
+#search_bar {
     margin: 0;
     resize: none;
     outline: none;
@@ -55,6 +55,7 @@ body {
     border: none;
     background-color: #e9eef8;
     max-width: 45px;
+    max-height: 20px;
     border-radius: 20px;
     padding: 8px;
 }
@@ -64,7 +65,7 @@ body {
 }
 
 
-.choose_sex_content {
+.choose_gender_content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -128,10 +129,40 @@ body {
     font-weight: 800;
 }
 
+.age_block {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.age_inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .age {
     color: darkslategrey;
     border: solid 1px darkslategrey;
     width: 100%;
     text-align: center;
     padding: 5px 0 5px 0;
+}
+
+.button_standard {
+    display: flex;
+    font-weight: 700;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid rgb(0, 0, 0);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.button_standard:hover {
+    background-color: rgba(230, 244, 244, 0.815);
+    transition: 0.3s;
 }

@@ -1,57 +1,40 @@
 const dudesList = document.getElementById('user_cards');
-const searchBar = document.getElementById('searchBar');
+const searchBar = document.getElementById('search_bar');
 const reset = document.getElementById('reset');
-const disclaimer = document.getElementById('chooseAnotherGender');
+const disclaimer = document.getElementById('choose_another_gender');
+const RandomUserApiUrl = `https://randomuser.me/api/?results=32&nat=au,us,ca,gb,fr,nl,nz&inc=nat,location,gender,name,email,dob,phone,picture`;
 let theDudes = [];
 
-reset.addEventListener('click', (e) => {
-    loaddudes();
-})
-
-disclaimer.addEventListener('click', (e) => {
-  alert("We are sorry - the are only two genders");
-})
-
-searchBar.addEventListener('keyup', (e) => {
-    const searchString = e.target.value.toLowerCase();
-
-    const filtereddudes = theDudes.results.filter((dude) => {
-        return (
-            dude.name.first.toLowerCase().includes(searchString)||
-            dude.name.last.toLowerCase().includes(searchString)
-        );
-    });
-    displaydudes(filtereddudes);
-});
-
-const loaddudes = async () => {
+const loadDudes = async () => {
     try {
-        const res = await fetch(`https://randomuser.me/api/?results=32&nat=au,us,ca,gb,fr,nl,nz&inc=nat,location,gender,name,email,dob,phone,picture`);
+        const res = await fetch(RandomUserApiUrl);
         theDudes = await res.json();
-        displaydudes(theDudes.results);
+        displayDudes(theDudes.results);
+
         const tempArray = [...theDudes.results];
         let toSortLater = [];
-        tempArray.map(el=>toSortLater.push(el.name.last,el.dob.age,el.gender,';'));
+        tempArray.map(el => toSortLater.push(el.name.last, el.dob.age, el.gender, ';'));
         console.log(toSortLater);
         // toSortLater.sort((a,b)=>
         // console.log(theDudes.results[0].name.last, theDudes.results[1].name.last,)
+
     } catch (err) {
         console.error(err);
     }
 };
 
-const displaydudes = (dudes) => {
+const displayDudes = (dudes) => {
     const htmlString = dudes
         .map((dude) => {
-             return `   
+            return `   
             <li class="user_card">
                 <div class="user_name">${dude.name.first}</div>
                  <div class="user_card_content">
                    <div class="user_photo">
-                   <img src="${dude.picture.medium}">
+                   <img src="${dude.picture.medium}" alt="">
                    </div>
                   <div class="user_about">
-                    <p class="email">${dude.email.replace('@','<br/>@')}</p>
+                    <p class="email">${dude.email.replace('@', '<br/>@')}</p>
                     <p class="phone">${dude.phone}</p>
                     <p class="city">${dude.location.city},</p>
                     <p class="country">${dude.location.country}</p>
@@ -65,10 +48,40 @@ const displaydudes = (dudes) => {
     dudesList.innerHTML = htmlString;
 };
 
-const toSortByABC = document.querySelectorAll('.user_name');
-console.log(toSortByABC)
+reset.addEventListener('click', (e) => {
+    loadDudes();
+});
 
-loaddudes();
+disclaimer.addEventListener('click', (e) => {
+    alert("We are sorry - the are only two genders");
+});
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    const filteredDudes = theDudes.results.filter((dude) => {
+        return (
+            dude.name.first.toLowerCase().includes(searchString) ||
+            dude.name.last.toLowerCase().includes(searchString)
+        );
+    });
+    displayDudes(filteredDudes);
+});
+
+loadDudes();
+
+const sortDudesByName = toSortLater.sort((a, b) => {
+    if (a.name < b.name) {
+        return -1;
+    }
+    if (a.name > b.name) {
+        return 1;
+    }
+    return 0;
+});
+console.log(sortDudesByName);
+
+//==========================================================================
 
 // console.log(
 //     Array.from(toSortByABC).forEach(el => {
@@ -90,6 +103,8 @@ loaddudes();
 //         })();
 //     }
 // });
+
+//==========================================================================
 
 // const elements = await this;
 // const arrayOfElementFinders = elements.slice(0, 3); // or Array.from?
@@ -115,6 +130,7 @@ loaddudes();
 //     console.log('array sorted');
 // });
 
+//==========================================================================
 
 // function getMetadataPromise(entry) {
 //     return new Promise((resolve, reject) => {
@@ -135,6 +151,8 @@ loaddudes();
 //         console.log(JSON.stringify(sortedEntries));
 //     }, console.error);
 
+//==========================================================================
+
 // let sorted=Array.from(toSortByABC);
 // if (sorted != null) {sorted.sort((a, b) => {
 //     const nameA = a.name.toUpperCase(); // ignore upper and lowercase
@@ -152,6 +170,8 @@ loaddudes();
 //
 // console.log(sorted)
 
+//==========================================================================
+
 // Array.from(toSortByABC).forEach(el => {
 //     if (el !== null) {
 //         (async() => {
@@ -160,15 +180,15 @@ loaddudes();
 //     }
 // }))
 
-
-
-// let getAge = document.querySelectorAll
-
+//==========================================================================
 
 // -fetch('https://randomuser.me/api/?results=30&nat=us,fr,nl,nz&inc=nat,location,gender,name,email,dob,phone,picture')
 //  .then(response=>response.json()) //json is a promise
 //  .then(json=>console.log(json))
 //  .catch(error=>console.log(error));
+
+//==========================================================================
+
 // Object { results: (30) […], info: {…} }
 // info:{…}
 // results: Array(30) [ {…}, {…}, {…}, … ]
@@ -299,4 +319,3 @@ loaddudes();
 //     </li>`
 
 //========================================================================
-
