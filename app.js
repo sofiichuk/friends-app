@@ -1,10 +1,10 @@
 const dudesList = document.getElementById('user_cards');
-const searchBar = document.getElementById('search_bar');
 const reset = document.getElementById('reset');
 const switchStyle = document.getElementById('switch_style');
-const disclaimer = document.getElementById('choose_another_gender');
-
-const genderFilter = document.getElementById('choose_gender_content');
+const disclaimer = document.getElementById('another_gender');
+const searchBar = document.getElementById('search_bar');
+const ageInput = document.getElementById('age_inputs');
+const genderFilter = document.getElementById('gender');
 const ageAscending = document.getElementById('age_ascending');
 const ageDescending = document.getElementById('age_descending');
 const nameAscending = document.getElementById('name_ascending');
@@ -66,12 +66,21 @@ disclaimer.addEventListener('click', (e) => {
 
 searchBar.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
-    console.log(theDudes)
     const filteredDudes = theDudes.results.filter((dude) => {
         return (
             dude.name.first.toLowerCase().includes(searchString) ||
             dude.name.last.toLowerCase().includes(searchString)
         );
+    });
+    displayDudes(filteredDudes);
+});
+
+genderFilter.addEventListener('click', (e) => {
+    const filteredDudes = theDudes.results.filter((dude) => {
+        if (e.target.id === 'male' || e.target.id === 'female') {
+            return (dude.gender===e.target.id);
+        }
+        else {return theDudes.results}
     });
     displayDudes(filteredDudes);
 });
@@ -96,61 +105,10 @@ nameAscending.addEventListener('click', (e) => {
     displayDudes(sortedDudes);
 });
 
-// genderFilter.addEventListener('click', (e) => {
-//     // const sortedDudes = theDudes.results.sort((a, b) => b.name.first.localeCompare(a.name.first));
-//     displayDudes(sortedDudes);
-// });
+ageInput.addEventListener('keyup', (e) => {
+    // const sortedDudes = theDudes.results.sort((a, b) => a.dob.age - b.dob.age);
+    // displayDudes(sortedDudes);
+    console.log(e.target.value)
+});
 
 loadDudes();
-
-//==========================================================================
-
-// Object { results: (30) […], info: {…} }
-// info:{…}
-// results: Array(30) [ {…}, {…}, {…}, … ]
-// 0:Object {
-//     "gender": "female",
-//     "name": {
-//     "title": "Ms",
-//         "first": "Hailey",
-//         "last": "Wood"
-// },
-//     "location": {
-//     "street": {
-//         "number": 1193,
-//             "name": "Country Club Rd"
-//     },
-//     "city": "Miami",
-//         "state": "Missouri",
-//         "country": "United States",
-//         "postcode": 29901,
-//         "coordinates": {
-//         "latitude": "-66.8613",
-//             "longitude": "169.7719"
-//     },
-//     "timezone": {
-//         "offset": "+4:30",
-//             "description": "Kabul"
-//     }
-// },
-//     "email": "hailey.wood@example.com",
-//     "dob": {
-//     "date": "1961-04-17T14:55:06.882Z",
-//         "age": 61
-// },
-//     "phone": "(639) 823-5062",
-//     "picture": {
-//     "large": "https://randomuser.me/api/portraits/women/11.jpg",
-//         "medium": "https://randomuser.me/api/portraits/med/women/11.jpg",
-//         "thumbnail": "https://randomuser.me/api/portraits/thumb/women/11.jpg"
-// },
-//     "nat": "US"
-// },
-//
-// picture: Object { large: "https://randomuser.me/api/portraits/women/11.jpg", medium: "https://randomuser.me/api/portraits/med/women/11.jpg", thumbnail: "https://randomuser.me/api/portraits/thumb/women/11.jpg" }
-// large: "https://randomuser.me/api/portraits/women/11.jpg"
-// medium: "https://randomuser.me/api/portraits/med/women/11.jpg"
-// thumbnail: "https://randomuser.me/api/portraits/thumb/women/11.jpg"
-
-
-//========================================================================

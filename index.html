@@ -16,26 +16,26 @@
                 <button class="filter_button" id="name_ascending"><img alt="" src="ascending.png"></button>
             </div>
             <div class="title_center">Sex:</div>
-            <div class="choose_gender_content">
-                <div class="filter_element"><input id="choose_male" name="choose_sex" type="radio"
-                                                   value="Male">
-                    <label for="choose_male">&nbsp;&nbsp;Male&nbsp;&nbsp;</label></div>
+            <div class="gender" id="gender">
+                <div class="filter_element"><input id="male" name="sex" type="radio"
+                                                   value="male">
+                    <label for="male">&nbsp;&nbsp;Male&nbsp;&nbsp;</label></div>
 
-                <div class="filter_element"><input id="choose_female" name="choose_sex" type="radio"
-                                                   value="Female">
-                    <label for="choose_female">Female</label></div>
+                <div class="filter_element"><input id="female" name="sex" type="radio"
+                                                   value="female">
+                    <label for="female">Female</label></div>
 
-                <div class="filter_element"><input id="choose_another_gender" name="choose_sex" type="radio"
-                                                   value="No">
-                    <label for="choose_another_gender">&nbsp;Other&nbsp;&nbsp;</label></div>
+                <div class="filter_element"><input id="another_gender" name="sex" type="radio"
+                                                   value="no">
+                    <label for="another_gender">&nbsp;Other&nbsp;&nbsp;</label></div>
 
-                <div class="filter_element"><input id="choose_all" name="choose_sex" type="radio"
-                                                   value="All">
-                    <label for="choose_all">&nbsp;&nbsp;&nbsp;All&nbsp;&nbsp;&nbsp;&nbsp;</label></div>
+                <div class="filter_element"><input id="all" name="sex" type="radio"
+                                                   value="all">
+                    <label for="all">&nbsp;&nbsp;&nbsp;All&nbsp;&nbsp;&nbsp;&nbsp;</label></div>
             </div>
             <div class="title_center">Age:</div>
             <div class="age_block">
-                <div class="age_inputs">
+                <div class="age_inputs" id="age_inputs">
                     <input class="num_input" max="120" min="0" name="number" placeholder="  min" type="number">
                     <input class="num_input" max="120" min="0" name="number" placeholder=" max" type="number">
                 </div>

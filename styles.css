@@ -1,5 +1,5 @@
 body {
-    /*background-color: #ff0000;*/
+    background-color: #ff0000;
     list-style: none;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
@@ -65,7 +65,7 @@ body {
 }
 
 
-.choose_gender_content {
+.gender {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -89,6 +89,7 @@ body {
     gap: 20px;
     border: 1px solid #ffae00;
     cursor: pointer;
+    max-height:385px;
 }
 
 .user_name {
@@ -147,6 +148,7 @@ body {
     width: 100%;
     text-align: center;
     padding: 5px 0 5px 0;
+    border-bottom-style: none;
 }
 
 .button_standard {
