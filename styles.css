@@ -1,5 +1,5 @@
 body {
-    background-color: #ff0000;
+    /*background-color: #ff0000;*/
     list-style: none;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
@@ -171,7 +171,7 @@ body {
     position: absolute;
     border-radius: 20px;
     cursor: pointer;
-    left: 235px;
+    left: 240px;
     background-color: #ff0000;
     border: 1px solid black
 }
