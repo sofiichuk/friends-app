@@ -9,13 +9,13 @@ body {
     padding: 50px;
 }
 
-.filter {
+.side_menu {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-.filter_content {
+.side_menu_content {
     display: flex;
     font-size: small;
     min-width: 180px;
@@ -87,13 +87,13 @@ body {
     gap: 10px;
 }
 
-.filter_button img {
+.sort_button img {
     max-width: 30px;
 }
 
 #user_cards {
     display: grid;
-    grid-template-columns: 220px 220px 220px 220px;
+    grid-template-columns: repeat(4, 220px);
     gap: 15px;
     margin: 0;
 }
@@ -190,7 +190,7 @@ body {
     transition: 0.3s;
 }
 
-.filter_button:hover {
+.sort_button:hover {
     cursor: pointer;
 }
 
